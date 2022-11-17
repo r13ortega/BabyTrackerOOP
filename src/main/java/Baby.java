@@ -20,6 +20,7 @@ class Baby {
         //the two strings below will use the formats above to get a String for today date and the time this was run
         String time = timeMate.format(today);
         String date = dateMate.format(today);
+        String event = "";
 
 
     }
@@ -33,13 +34,34 @@ class Baby {
         scan.nextLine();
         while (answer != 1 || answer != 2 || answer != 3){
             switch (answer){
-                case 1 : return "Wet";
-                case 2 : return "Dirty";
-                case 3 : return "Mix";
+                case 1 : return "Wet Diaper";
+                case 2 : return "Dirty Diaper";
+                case 3 : return "Mix Diaper";
             }
         }
         return null;
     }
+    public static String feeding(){
+        System.out.println("What did the baby eat?\n" +
+                "1. Formula \n" +
+                "2. Breast Milk \n" +
+                "3. Food Food ");
+        Scanner scan = new Scanner(System.in);
+        int answer = scan.nextInt();
+        scan.nextLine();
+        String feed = "";
+        while (answer != 1 || answer != 2 || answer != 3){
+            switch (answer){
+                case 1 : feed += "Formula ";
+                case 2 : feed += "Breast Milk ";
+                case 3 : feed += "Food ";
+            }
+        }
+        System.out.println("How many oz did the baby eat/drink?");
+        feed += scan.nextLine();
+        return feed;
+    }
+
 
 
 }

@@ -10,9 +10,9 @@ class BabyTest {
     void lifeEventCreate() {
     }
 
-    @Test
-    void diaper(){
-        assertEquals(0, Baby.diaper());
-    }
+//    @Test
+////    void diaper(){
+////        assertEquals(0, Baby.diaper());
+////    }
 
 }
