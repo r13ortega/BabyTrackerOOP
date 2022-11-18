@@ -21,10 +21,24 @@ class Baby {
         String time = timeMate.format(today);
         String date = dateMate.format(today);
         String event = "";
-
-
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please select a baby event?\n" +
+                "(1) Diaper\n" +
+                "(2) Feeding\n" +
+                "(3) Sleep\n" +
+                "Please Enter in the Number of the Event");
+        int num = scan.nextInt();
+        scan.nextLine();
+        switch (num){
+            case 1 : event += diaper();
+            case 2 : event += feeding();
+            case 3 : event += sleep();
+        }
+        LifeEvent life = new LifeEvent(date, time, event);
+        baby.add(life);
     }
-    public static String diaper(){
+
+    public String diaper(){
         System.out.println("What kind of accident did the baby have?\n" +
                 "1. Wet \n" +
                 "2. Dirty \n" +
@@ -32,16 +46,14 @@ class Baby {
         Scanner scan = new Scanner(System.in);
         int answer = scan.nextInt();
         scan.nextLine();
-        while (answer != 1 || answer != 2 || answer != 3){
             switch (answer){
                 case 1 : return "Wet Diaper";
                 case 2 : return "Dirty Diaper";
                 case 3 : return "Mix Diaper";
             }
-        }
         return null;
     }
-    public static String feeding(){
+    public String feeding(){
         System.out.println("What did the baby eat?\n" +
                 "1. Formula \n" +
                 "2. Breast Milk \n" +
@@ -50,16 +62,24 @@ class Baby {
         int answer = scan.nextInt();
         scan.nextLine();
         String feed = "";
-        while (answer != 1 || answer != 2 || answer != 3){
             switch (answer){
                 case 1 : feed += "Formula ";
                 case 2 : feed += "Breast Milk ";
                 case 3 : feed += "Food ";
-            }
         }
         System.out.println("How many oz did the baby eat/drink?");
         feed += scan.nextLine();
         return feed;
+    }
+
+    public String sleep(){
+        System.out.println("When did the baby fall asleep?" +
+                "\n Please write as hh:mm a\n" +
+                "example 12:37 AM or 2:56 PM");
+        Scanner scan = new Scanner(System.in);
+        String sleep = "Bake woke up. Baby fell asleep at ";
+        sleep += scan.nextLine();
+        return sleep;
     }
 
 
