@@ -191,9 +191,9 @@ class Baby {
                         "Type (1) for Wet \n" +
                         "Type (2) for Dirty \n" +
                         "Type (3) for Mix");
-                int answer = scan.nextInt();
+                int ans = scan.nextInt();
                 scan.nextLine();
-                switch (answer) {
+                switch (ans) {
                     case 1:
                         baby.get(num).event = "Wet Diaper";
                         break;
@@ -203,7 +203,6 @@ class Baby {
                     case 3:
                         baby.get(num).event = "Mix Diaper";
                         break;
-                    break;
                 }
         }
     }
