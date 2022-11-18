@@ -66,12 +66,18 @@ class Baby {
         scan.nextLine();
         String feed = "";
             switch (answer){
-                case 1 : feed += "Formula ";
-                case 2 : feed += "Breast Milk ";
-                case 3 : feed += "Food ";
+                case 1 :
+                    feed += "Formula ";
+                    break;
+                case 2 :
+                    feed += "Breast Milk ";
+                    break;
+                case 3 :
+                    feed += "Food ";
+                    break;
         }
         System.out.println("How many oz did the baby eat/drink?");
-        feed += scan.nextLine();
+        feed += scan.nextLine() + " oz";
         return feed;
     }
 
@@ -105,13 +111,26 @@ class Baby {
                 "Enter (2) for Feeding\n" +
                 "Enter (3) for Sleep");
         Scanner scan = new Scanner(System.in);
-        String answer = scan.nextLine();
-        if (answer.equalsIgnoreCase("1")){
-            
-        } else if (answer.equalsIgnoreCase("2")) {
-            
-        } else if (answer.equalsIgnoreCase("3")) {
-            
+        int answer = scan.nextInt();
+        scan.nextLine();
+        switch (answer){
+            case 1 :
+
+                break;
+            case 2 :
+
+                break;
+            case 3 :
+
+                break;
+        }
+    }
+
+    public void updateDiaper(){
+        for (int i = 0; i < baby.size(); i++) {
+            if(baby.get(i).event.contains("diaper")){
+                System.out.println("1: " + baby.get(i).time + " " + baby.get(i).event);
+            }
         }
     }
 }
