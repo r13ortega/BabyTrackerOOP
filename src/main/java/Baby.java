@@ -84,4 +84,16 @@ class Baby {
 
 
 
+    public void printingEvents(){
+        for (LifeEvent life: this.baby) {
+            //calling the Print method from Product Classes/instance
+            life.printer();
+        }
+
+    }
+
+    public void removeEvents(){
+
+
+    }
 }
