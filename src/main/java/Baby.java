@@ -122,10 +122,10 @@ class Baby {
                 updateDiaper();
                 break;
             case 2:
-
+                updateFeeding();
                 break;
             case 3:
-
+                updateSleeping();
                 break;
         }
     }
@@ -133,7 +133,7 @@ class Baby {
     public void updateDiaper() {
         for (int i = 0; i < baby.size(); i++) {
             if (baby.get(i).event.contains("Diaper")) {
-                System.out.println("1: " + baby.get(i).time + " " + baby.get(i).event);
+                System.out.println(i + ": " + baby.get(i).time + " " + baby.get(i).event);
             }
         }
         System.out.println("Please enter in the number of the Diaper Event you wish to Update");
@@ -209,10 +209,143 @@ class Baby {
 
     public void updateFeeding(){
 
-
+        for (int i = 0; i < baby.size(); i++) {
+            if (baby.get(i).event.contains("oz")) {
+                System.out.println((i+1) +": " + baby.get(i).time + " " + baby.get(i).event);
+            }
+        }
+        System.out.println("Please enter in the number of the Feeding Event you wish to Update");
+        Scanner scan = new Scanner(System.in);
+        int num = Integer.parseInt(scan.nextLine());
+        num = num - 1;
+        System.out.println("Would you like to update the date, time, event, or all?\n" +
+                "Type (1) for Date\n" +
+                "Type (2) for Time\n" +
+                "Type (3) for Event\n" +
+                "Type (4) for All");
+        int update = Integer.parseInt(scan.nextLine());
+        switch (update){
+            case 1:
+                System.out.println("When date did the baby eat?" +
+                        "\n Please write as MM/dd/yyyy\n" +
+                        "example 09/18/2022 AM or 11/18/2021");
+                baby.get(num).date = scan.nextLine();
+                break;
+            case 2:
+                System.out.println("When did the baby eat?" +
+                        "\n Please write as hh:mm a\n" +
+                        "example 12:37 AM or 2:56 PM");
+                baby.get(num).time = scan.nextLine();
+                break;
+            case 3:
+                System.out.println("What did the baby eat?\n" +
+                        "1. Formula \n" +
+                        "2. Breast Milk \n" +
+                        "3. Food Food ");
+                int answer = scan.nextInt();
+                scan.nextLine();
+                String feed = "";
+                switch (answer) {
+                    case 1:
+                        feed += "Formula ";
+                        break;
+                    case 2:
+                        feed += "Breast Milk ";
+                        break;
+                    case 3:
+                        feed += "Food ";
+                        break;
+                }
+                baby.get(num).event = feed;
+                System.out.println("How many oz did the baby eat/drink?");
+                baby.get(num).event += scan.nextLine() + " oz";
+                break;
+            case 4 :
+                System.out.println("When date did the baby eat?" +
+                        "\n Please write as MM/dd/yyyy\n" +
+                        "example 09/18/2022 AM or 11/18/2021");
+                baby.get(num).date = scan.nextLine();
+                System.out.println("When did the baby eat?" +
+                        "\n Please write as hh:mm a\n" +
+                        "example 12:37 AM or 2:56 PM");
+                baby.get(num).time = scan.nextLine();
+                System.out.println("What did the baby eat?\n" +
+                        "1. Formula \n" +
+                        "2. Breast Milk \n" +
+                        "3. Food Food ");
+                int ans = scan.nextInt();
+                scan.nextLine();
+                String fee = "";
+                switch (ans) {
+                    case 1:
+                        fee += "Formula ";
+                        break;
+                    case 2:
+                        fee += "Breast Milk ";
+                        break;
+                    case 3:
+                        fee += "Food ";
+                        break;
+                }
+                baby.get(num).event = fee;
+                System.out.println("How many oz did the baby eat/drink?");
+                baby.get(num).event += scan.nextLine() + " oz";
+                break;
+        }
     }
 
-    public void updateSleep(){
-
+    public void updateSleeping(){
+        for (int i = 0; i < baby.size(); i++) {
+            if (baby.get(i).event.contains("woke")) {
+                System.out.println((i+1) +": " + baby.get(i).time + " " + baby.get(i).event);
+            }
+        }
+        System.out.println("Please enter in the number of the Sleeping Event you wish to Update");
+        Scanner scan = new Scanner(System.in);
+        int num = Integer.parseInt(scan.nextLine());
+        num = num - 1;
+        System.out.println("Would you like to update the date, time, event, or all?\n" +
+                "Type (1) for Date\n" +
+                "Type (2) for Time\n" +
+                "Type (3) for Event\n" +
+                "Type (4) for All");
+        int update = Integer.parseInt(scan.nextLine());
+        switch (update){
+            case 1:
+                System.out.println("What date did the baby wake up?" +
+                        "\n Please write as MM/dd/yyyy\n" +
+                        "example 09/18/2022 AM or 11/18/2021");
+                baby.get(num).date = scan.nextLine();
+                break;
+            case 2:
+                System.out.println("What time did the baby wake up?" +
+                        "\n Please write as hh:mm a\n" +
+                        "example 12:37 AM or 2:56 PM");
+                baby.get(num).time = scan.nextLine();
+                break;
+            case 3:
+                System.out.println("When did the baby fall asleep?" +
+                        "\n Please write as hh:mm a\n" +
+                        "example 12:37 AM or 2:56 PM");
+                String sleep = "Bake woke up. Baby fell asleep at ";
+                sleep += scan.nextLine();
+                baby.get(num).event = sleep;
+            case 4 :
+                System.out.println("What date did the baby wake up?" +
+                        "\n Please write as MM/dd/yyyy\n" +
+                        "example 09/18/2022 AM or 11/18/2021");
+                baby.get(num).date = scan.nextLine();
+                System.out.println("What time did the baby wake up?" +
+                        "\n Please write as hh:mm a\n" +
+                        "example 12:37 AM or 2:56 PM");
+                baby.get(num).time = scan.nextLine();
+                System.out.println("When did the baby fall asleep?" +
+                        "\n Please write as hh:mm a\n" +
+                        "example 12:37 AM or 2:56 PM");
+                String sle = "Bake woke up. Baby fell asleep at ";
+                sle += scan.nextLine();
+                baby.get(num).event = sle;
+                break;
+        }
     }
 }
