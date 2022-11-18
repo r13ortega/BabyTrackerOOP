@@ -115,7 +115,7 @@ class Baby {
         scan.nextLine();
         switch (answer){
             case 1 :
-
+                updateDiaper();
                 break;
             case 2 :
 
@@ -128,9 +128,72 @@ class Baby {
 
     public void updateDiaper(){
         for (int i = 0; i < baby.size(); i++) {
-            if(baby.get(i).event.contains("diaper")){
+            if(baby.get(i).event.contains("Diaper")){
                 System.out.println("1: " + baby.get(i).time + " " + baby.get(i).event);
             }
+        }
+        System.out.println("Please enter in the number of the Diaper Event you wish to Update");
+        Scanner scan = new Scanner(System.in);
+        int num = Integer.parseInt(scan.nextLine());
+        num = num -1;
+        System.out.println("Would you like to update the date, time, event, or all?\n" +
+                "Type (1) for Date\n" +
+                "Type (2) for Time\n" +
+                "Type (3) for Event\n" +
+                "Type (4) for All");
+        int update = Integer.parseInt(scan.nextLine());
+        switch (update){
+            case 1 :
+                System.out.println("When date did the baby fall asleep?" +
+                        "\n Please write as MM/dd/yyyy\n" +
+                        "example 09/18/2022 AM or 11/18/2021");
+                baby.get(num).date = scan.nextLine();
+                break;
+            case 2 :
+                System.out.println("When did the baby fall asleep?" +
+                        "\n Please write as hh:mm a\n" +
+                        "example 12:37 AM or 2:56 PM");
+                baby.get(num).time = scan.nextLine();
+                break;
+            case 3 :
+                System.out.println("What kind of accident did the baby have?\n" +
+                        "Type (1) for Wet \n" +
+                        "Type (2) for Dirty \n" +
+                        "Type (3) for Mix");
+                int answer = scan.nextInt();
+                scan.nextLine();
+                switch (answer){
+                    case 1 : baby.get(num).event = "Wet Diaper";
+                    break;
+                    case 2 : baby.get(num).event = "Dirty Diaper";
+                    break;
+                    case 3 : baby.get(num).event = "Mix Diaper";
+                    break;
+                }
+                break;
+            case 4 :
+                System.out.println("When date did the baby fall asleep?" +
+                        "\n Please write as MM/dd/yyyy\n" +
+                        "example 09/18/2022 AM or 11/18/2021");
+                baby.get(num).date = scan.nextLine();
+                System.out.println("When did the baby fall asleep?" +
+                        "\n Please write as hh:mm a\n" +
+                        "example 12:37 AM or 2:56 PM");
+                baby.get(num).time = scan.nextLine();
+                System.out.println("What kind of accident did the baby have?\n" +
+                        "Type (1) for Wet \n" +
+                        "Type (2) for Dirty \n" +
+                        "Type (3) for Mix");
+                int answer = scan.nextInt();
+                scan.nextLine();
+                switch (answer){
+                    case 1 : baby.get(num).event = "Wet Diaper";
+                        break;
+                    case 2 : baby.get(num).event = "Dirty Diaper";
+                        break;
+                    case 3 : baby.get(num).event = "Mix Diaper";
+                        break;
+                break;
         }
     }
 }

@@ -123,9 +123,5 @@ class BabyTest {
         assertEquals(9, num);
     }
 
-//    @Test
-////    void diaper(){
-////        assertEquals(0, Baby.diaper());
-////    }
 
 }
