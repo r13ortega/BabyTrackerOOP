@@ -206,4 +206,13 @@ class Baby {
                 }
         }
     }
+
+    public void updateFeeding(){
+
+
+    }
+
+    public void updateSleep(){
+
+    }
 }
