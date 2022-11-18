@@ -27,12 +27,15 @@ class Baby {
                 "(2) Feeding\n" +
                 "(3) Sleep\n" +
                 "Please Enter in the Number of the Event");
-        int num = scan.nextInt();
-        scan.nextLine();
-        switch (num){
-            case 1 : event += diaper();
-            case 2 : event += feeding();
-            case 3 : event += sleep();
+        String answer = scan.nextLine();
+        if (answer.equalsIgnoreCase("1")){
+            event +=diaper();
+        } else if (answer.equalsIgnoreCase("2")) {
+            event +=feeding();
+        } else if (answer.equalsIgnoreCase("3")) {
+            event +=sleep();
+        } else {
+            System.out.println("naw lets try it again");
         }
         LifeEvent life = new LifeEvent(date, time, event);
         baby.add(life);
@@ -86,14 +89,29 @@ class Baby {
 
     public void printingEvents(){
         for (LifeEvent life: this.baby) {
-            //calling the Print method from Product Classes/instance
+            //calling the Printer method from LifeEvent Classes/instance
             life.printer();
         }
-
     }
 
     public void removeEvents(){
 
 
+    }
+
+    public void updateEvent (){
+        System.out.println("What Baby Event are you trying to modify?\n" +
+                "Enter (1) for Diaper\n" +
+                "Enter (2) for Feeding\n" +
+                "Enter (3) for Sleep");
+        Scanner scan = new Scanner(System.in);
+        String answer = scan.nextLine();
+        if (answer.equalsIgnoreCase("1")){
+            
+        } else if (answer.equalsIgnoreCase("2")) {
+            
+        } else if (answer.equalsIgnoreCase("3")) {
+            
+        }
     }
 }

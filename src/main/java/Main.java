@@ -8,7 +8,8 @@ public class Main {
     public static void main(String[] args) {
         Baby Lumina = new Baby();
         Lumina.feeding();
-
+        Lumina.diaper();
+        Lumina.printingEvents();
 
     }
 }
