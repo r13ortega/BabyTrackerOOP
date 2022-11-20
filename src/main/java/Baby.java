@@ -139,7 +139,7 @@ class Baby {
     public void updateDiaper() {
         for (int i = 0; i < baby.size(); i++) {
             if (baby.get(i).event.contains("Diaper")) {
-                System.out.println(i + ": " + baby.get(i).time + " " + baby.get(i).event);
+                System.out.println(i +1 + ": " + baby.get(i).time + " " + baby.get(i).event);
             }
         }
         System.out.println("Please enter in the number of the Diaper Event you wish to Update");

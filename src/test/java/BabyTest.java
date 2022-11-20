@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -122,6 +123,87 @@ class BabyTest {
         num -= 1;
         assertEquals(9, num);
     }
+    @Test
+    void removeTest1(){
+        LifeEvent diaper = new LifeEvent("09/18/1990", "12:58 PM", "Wet Diaper");
+        LifeEvent poo = new LifeEvent("09/18/1990", "12:58 PM", "Poo Diaper");
+        LifeEvent eat = new LifeEvent("09/18/1990", "12:58 PM", "Eating");
+        LifeEvent sleep = new LifeEvent("09/18/1990", "12:58 PM", "Nappy Nappy");
+        ArrayList<LifeEvent> baby = new ArrayList<>();
+        baby.add(diaper);
+        baby.add(poo);
+        baby.add(eat);
+        baby.add(sleep);
+//        for (int i = 0; i < baby.size(); i++) {
+//            System.out.println(i + ": " + baby.get(i).time + " " + baby.get(i).event);
+//        }
+        int answer = 1;
+        baby.remove(answer);
+        assertSame("Eating", baby.get(1).event);
+    }
+    @Test
+    void removeTest2(){
+        LifeEvent diaper = new LifeEvent("09/18/1990", "12:58 PM", "Wet Diaper");
+        LifeEvent poo = new LifeEvent("09/18/1990", "12:58 PM", "Poo Diaper");
+        LifeEvent eat = new LifeEvent("09/18/1990", "12:58 PM", "Eating");
+        LifeEvent sleep = new LifeEvent("09/18/1990", "12:58 PM", "Nappy Nappy");
+        ArrayList<LifeEvent> baby = new ArrayList<>();
+        baby.add(diaper);
+        baby.add(poo);
+        baby.add(eat);
+        baby.add(sleep);
+        int answer = 1;
+        baby.remove(answer);
+        baby.remove(answer);
+        assertSame("Nappy Nappy", baby.get(1).event);
+    }
+    @Test
+    void updateLogicTest1(){
+        int i = 5;
+        assertNotEquals(6, i+1);
+    }
+    @Test
+    void updateTest1(){
+        LifeEvent diaper = new LifeEvent("09/18/1990", "12:58 PM", "Wet Diaper");
+        LifeEvent poo = new LifeEvent("09/18/1990", "12:58 PM", "Poo Diaper");
+        LifeEvent eat = new LifeEvent("09/18/1990", "12:58 PM", "Eating");
+        LifeEvent sleep = new LifeEvent("09/18/1990", "12:58 PM", "Nappy Nappy");
+        ArrayList<LifeEvent> baby = new ArrayList<>();
+        baby.add(diaper);
+        baby.add(poo);
+        baby.add(eat);
+        baby.add(sleep);
+        int update = 1;
+        switch (update) {
+            case 1:
+                String date = "09/18/1990";
+                baby.get(update).date = date;
+                assertSame("09/18/1990", baby.get(update).date);
+                //break; removing breaks to run test in one go
+            case 2:
+                String time = "11:56 AM";
+                baby.get(update).time = time;
+                assertSame("11:56 AM", baby.get(update).time);
+                //break;
+            case 3:
+                int answer = 1;
+                switch (answer) {
+                    case 1:
+                        baby.get(update).event = "Wet Diaper";
+                        assertSame("Wet Diaper", baby.get(update).event);
+                        break;
+                    case 2:
+                        baby.get(update).event = "Dirty Diaper";
+                        break;
+                    case 3:
+                        baby.get(update).event = "Mix Diaper";
+                        break;
+                }
+                break;
+            case 4:
 
+                }
+        assertSame("Wet Diaper", baby.get(update).event);
 
-}
+    }
+    }
