@@ -105,8 +105,14 @@ class Baby {
     }
 
     public void removeEvents() {
-
-
+        for (int i = 0; i < baby.size(); i++) {
+                System.out.println(i + ": " + baby.get(i).time + " " + baby.get(i).event);
+        }
+        System.out.println("Which event would you like to remove?\n" +
+                "Please enter the number of the event you wish to remove");
+        Scanner scan = new Scanner(System.in);
+        int answer = Integer.parseInt(scan.nextLine());
+        baby.remove(answer);
     }
 
     public void updateEvent() {
