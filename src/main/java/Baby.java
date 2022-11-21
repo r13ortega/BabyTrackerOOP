@@ -79,13 +79,20 @@ class Baby implements java.io.Serializable{
     }
 
     public String feeding() {
-        System.out.println("What did the baby eat?\n" +
-                "1. Formula \n" +
-                "2. Breast Milk \n" +
-                "3. Food Food ");
+        int answer = 0;
         Scanner scan = new Scanner(System.in);
-        int answer = scan.nextInt();
-        scan.nextLine();
+        do {
+            System.out.println("What did the baby eat?\n" +
+                    "1. Formula \n" +
+                    "2. Breast Milk \n" +
+                    "3. Food Food ");
+            answer =Integer.parseInt(scan.nextLine());
+            if (answer == 1 || answer == 2 || answer ==3){
+                break;
+            } else {
+                System.out.println("Invalid entry, please enter in 1,2, or 3\n");
+            }
+        }while (true);
         String feed = "";
         switch (answer) {
             case 1:
