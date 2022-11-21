@@ -24,17 +24,27 @@ class Baby implements java.io.Serializable{
         String date = dateMate.format(today);
         String event = "";
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please select a baby event?\n" +
-                "(1) Diaper\n" +
-                "(2) Feeding\n" +
-                "(3) Sleep\n" +
-                "Please Enter in the Number of the Event");
-        String answer = scan.nextLine();
-        if (answer.equalsIgnoreCase("1")) {
+        int answer = 0;
+        do {
+            System.out.println("Please select a baby event?\n" +
+                    "(1) Diaper\n" +
+                    "(2) Feeding\n" +
+                    "(3) Sleep\n" +
+                    "Please Enter in the Number of the Event");
+            answer = Integer.parseInt(scan.nextLine());
+            if (answer == 1 || answer == 2 || answer == 3){
+                break;
+            } else {
+                System.out.println("Invalid entry, please try again.\n" +
+                        "Or Type in (0) if you wish to exit\n" +
+                        "\n");
+            }
+        }while(true);
+        if (answer ==1) {
             event += diaper();
-        } else if (answer.equalsIgnoreCase("2")) {
+        } else if (answer == 2) {
             event += feeding();
-        } else if (answer.equalsIgnoreCase("3")) {
+        } else if (answer == 3) {
             event += sleep();
         } else {
             System.out.println("naw lets try it again");
