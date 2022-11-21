@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class LifeEvent {
+public class LifeEvent implements java.io.Serializable{
 
     String date;
     String time;

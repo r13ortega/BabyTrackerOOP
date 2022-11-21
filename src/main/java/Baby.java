@@ -1,9 +1,10 @@
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-class Baby {
+class Baby implements java.io.Serializable{
 
     ArrayList<LifeEvent> baby;
 
@@ -354,4 +355,36 @@ class Baby {
                 break;
         }
     }
+
+    public void serialzation(){
+        try {
+            FileOutputStream fileOut =
+                    new FileOutputStream("C:/Users/r1ort/IdeaProjects/BabyTrackerOOP/src/main/java/BabyTracker.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(this.baby);
+            out.close();
+            fileOut.close();
+            System.out.printf("Serialized data is saved in /main/java/BabyTracker.ser");
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+    }
+
+    public void deserializing(){
+        try {
+            FileInputStream fileIn = new FileInputStream("C:/Users/r1ort/IdeaProjects/BabyTrackerOOP/src/main/java/BabyTracker.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            this.baby = (ArrayList<LifeEvent>) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            i.printStackTrace();
+            return;
+        } catch (ClassNotFoundException c) {
+            System.out.println("BabyTracker.ser not found, unable to load previous data");
+            c.printStackTrace();
+            return;
+        }
+    }
 }
+

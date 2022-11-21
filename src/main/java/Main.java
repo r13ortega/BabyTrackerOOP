@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Baby Lumina = new Baby();
         Scanner scan = new Scanner(System.in);
-
+        Lumina.deserializing();
         System.out.println("\n" +
                 "╭━━╮╱╱╱╭╮╱╱╱╱╱╱╭━━━━╮╱╱╱╱╱╱╭╮\n" +
                 "┃╭╮┃╱╱╱┃┃╱╱╱╱╱╱┃╭╮╭╮┃╱╱╱╱╱╱┃┃\n" +
@@ -39,6 +39,6 @@ public class Main {
                 break;
             }
         }
-                
+        Lumina.serialzation();
     }
 }
