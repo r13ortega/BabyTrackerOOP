@@ -14,7 +14,8 @@ public class LifeEvent implements java.io.Serializable{
     }
 
     public void printer() {
-        System.out.println("Time: " + time + "\nDate: " + date + "\nEvent: " + event);
+        System.out.println("Time: " + time + "\nDate: " + date + "\nEvent: " + event +"\n" +
+                "-------------------------\n");
     }
 
 }

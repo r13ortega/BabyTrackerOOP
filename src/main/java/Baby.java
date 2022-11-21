@@ -103,16 +103,25 @@ class Baby implements java.io.Serializable{
             //calling the Printer method from LifeEvent Classes/instance
             life.printer();
         }
+        System.out.println("Press Enter key to continue...");
+        try
+        {
+            System.in.read();
+        }
+        catch(Exception e) {
+            System.out.println("How did you mess that up?");
+        }
     }
 
     public void removeEvents() {
         for (int i = 0; i < baby.size(); i++) {
-                System.out.println(i + ": " + baby.get(i).time + " " + baby.get(i).event);
+                System.out.println(i+1 + ": " + baby.get(i).time + " " + baby.get(i).event);
         }
         System.out.println("Which event would you like to remove?\n" +
                 "Please enter the number of the event you wish to remove");
         Scanner scan = new Scanner(System.in);
         int answer = Integer.parseInt(scan.nextLine());
+        answer -=1;
         baby.remove(answer);
     }
 
