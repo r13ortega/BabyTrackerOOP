@@ -39,6 +39,6 @@ public class Main {
                 break;
             }
         }
-        Lumina.serialzation();
+        Lumina.serialization();
     }
 }

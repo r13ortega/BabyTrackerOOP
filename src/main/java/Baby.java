@@ -36,7 +36,6 @@ class Baby implements java.io.Serializable{
                 break;
             } else {
                 System.out.println("Invalid entry, please try again.\n" +
-                        "Or Type in (0) if you wish to exit\n" +
                         "\n");
             }
         }while(true);
@@ -54,13 +53,20 @@ class Baby implements java.io.Serializable{
     }
 
     public String diaper() {
-        System.out.println("What kind of accident did the baby have?\n" +
-                "1. Wet \n" +
-                "2. Dirty \n" +
-                "3. Mix ");
+        int answer = 0;
         Scanner scan = new Scanner(System.in);
-        int answer = scan.nextInt();
-        scan.nextLine();
+        do {
+            System.out.println("What kind of accident did the baby have?\n" +
+                    "1. Wet \n" +
+                    "2. Dirty \n" +
+                    "3. Mix ");
+            answer =Integer.parseInt(scan.nextLine());
+            if (answer == 1 || answer == 2 || answer ==3){
+                break;
+            } else {
+                System.out.println("Invalid entry, please enter in 1,2, or 3\n");
+            }
+        }while (true);
         switch (answer) {
             case 1:
                 return "Wet Diaper";
@@ -375,7 +381,7 @@ class Baby implements java.io.Serializable{
         }
     }
 
-    public void serialzation(){
+    public void serialization(){
         try {
             FileOutputStream fileOut =
                     new FileOutputStream("C:/Users/r1ort/IdeaProjects/BabyTrackerOOP/src/main/java/BabyTracker.ser");
@@ -398,11 +404,9 @@ class Baby implements java.io.Serializable{
             fileIn.close();
         } catch (IOException i) {
             i.printStackTrace();
-            return;
         } catch (ClassNotFoundException c) {
             System.out.println("BabyTracker.ser not found, unable to load previous data");
             c.printStackTrace();
-            return;
         }
     }
 }
