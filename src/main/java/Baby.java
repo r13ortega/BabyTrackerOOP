@@ -149,13 +149,21 @@ class Baby implements java.io.Serializable{
     }
 
     public void updateEvent() {
-        System.out.println("What Baby Event are you trying to modify?\n" +
-                "Enter (1) for Diaper\n" +
-                "Enter (2) for Feeding\n" +
-                "Enter (3) for Sleep");
+        int answer = 99;
         Scanner scan = new Scanner(System.in);
-        int answer = scan.nextInt();
-        scan.nextLine();
+        do {
+            System.out.println("What Baby Event are you trying to modify?\n" +
+                    "Enter (1) for Diaper\n" +
+                    "Enter (2) for Feeding\n" +
+                    "Enter (3) for Sleep\n" +
+                    "or Enter (0) to exit update");
+            answer =Integer.parseInt(scan.nextLine());
+            if (answer == 1 || answer == 2 || answer ==3 ||answer ==0){
+                break;
+            } else {
+                System.out.println("Invalid entry, please enter in 1,2, or 3\n");
+            }
+        }while (true);
         switch (answer) {
             case 1:
                 updateDiaper();
@@ -165,6 +173,8 @@ class Baby implements java.io.Serializable{
                 break;
             case 3:
                 updateSleeping();
+                break;
+            case 0:
                 break;
         }
     }
@@ -179,13 +189,25 @@ class Baby implements java.io.Serializable{
         Scanner scan = new Scanner(System.in);
         int num = Integer.parseInt(scan.nextLine());
         num = num - 1;
-        System.out.println("Would you like to update the date, time, event, or all?\n" +
-                "Type (1) for Date\n" +
-                "Type (2) for Time\n" +
-                "Type (3) for Event\n" +
-                "Type (4) for All");
-        int update = Integer.parseInt(scan.nextLine());
-        switch (update) {
+        /////////////////////////////////
+        int answer = 99;
+        do {
+            System.out.println("Would you like to update the date, time, event, or all?\n" +
+                    "Type (1) for Date\n" +
+                    "Type (2) for Time\n" +
+                    "Type (3) for Event\n" +
+                    "Type (4) for All");
+            answer = Integer.parseInt(scan.nextLine());
+            if (answer == 1 || answer == 2 || answer == 3 || answer == 4) {
+                break;
+            } else {
+                System.out.println("Invalid entry, please enter in 1,2, or 3\n");
+            }
+        }while (true);
+        ////////////////////////////////
+
+
+        switch (answer) {
             case 1:
                 System.out.println("When date did the baby fall asleep?" +
                         "\n Please write as MM/dd/yyyy\n" +
@@ -203,9 +225,9 @@ class Baby implements java.io.Serializable{
                         "Type (1) for Wet \n" +
                         "Type (2) for Dirty \n" +
                         "Type (3) for Mix");
-                int answer = scan.nextInt();
+                int answer1 = scan.nextInt();
                 scan.nextLine();
-                switch (answer) {
+                switch (answer1) {
                     case 1:
                         baby.get(num).event = "Wet Diaper";
                         break;
