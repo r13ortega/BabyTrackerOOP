@@ -1,21 +1,20 @@
 import java.util.ArrayList;
 
-public class LifeEvent {
+public class LifeEvent implements java.io.Serializable{
+
+    String date;
     String time;
 
-    ArrayList<String> listOfEvents = new ArrayList<>();
+    String event;
 
-    public LifeEvent(String time, ArrayList<String> listOfEvents) {
+    public LifeEvent(String date, String time, String event) {
+        this.date = date;
         this.time = time;
-        this.listOfEvents = listOfEvents;
+        this.event = event;
     }
 
-    @Override
-    public String toString() {
-        return "LifeEvent{" +
-                "time='" + time + '\'' +
-                ", listOfEvents=" + listOfEvents +
-                '}';
+    public void printer() {
+        System.out.println("Time: " + time + "\nDate: " + date + "\nEvent: " + event);
     }
 
 }
